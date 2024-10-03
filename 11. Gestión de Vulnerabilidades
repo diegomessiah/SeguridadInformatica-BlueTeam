@@ -1,0 +1,187 @@
+# **11. Gestión de Vulnerabilidades**
+
+## **11.1. Introducción a la Gestión de Vulnerabilidades**
+
+La gestión de vulnerabilidades es el proceso de identificar, clasificar, remediar y mitigar vulnerabilidades en los sistemas de información. Este proceso es esencial para reducir la superficie de ataque y proteger los activos de la organización contra posibles amenazas.
+
+---
+
+## **11.2. Identificación de Vulnerabilidades**
+
+### 1. Escaneo de Vulnerabilidades
+
+Utilizar herramientas automatizadas para escanear sistemas en busca de vulnerabilidades conocidas.
+
+#### Ejemplo Práctico: Uso de Nessus para Escaneo
+
+1. **Instalación de Nessus:**
+   - Descargar e instalar Nessus desde su [sitio oficial](https://www.tenable.com/products/nessus).
+
+2. **Crear un escaneo:**
+   - Acceder a la interfaz web y crear un nuevo escaneo.
+   - Seleccionar el tipo de escaneo (por ejemplo, "Basic Network Scan").
+   - Especificar los objetivos (direcciones IP o rangos).
+
+3. **Ejecutar el escaneo:**
+   - Iniciar el escaneo y esperar a que se complete.
+   - Revisar los resultados en busca de vulnerabilidades.
+
+### 2. Revisión de Alertas y Avisos de Seguridad
+
+Suscribirse a alertas de seguridad de fuentes confiables, como el NVD (National Vulnerability Database) y CVE (Common Vulnerabilities and Exposures).
+
+#### Ejemplo Práctico: Configuración de Alertas de CVE
+
+- **Registro en el boletín de CVE:**
+  - Visitar el [sitio de CVE](https://cve.mitre.org/cve/) y registrarse para recibir alertas por correo electrónico.
+
+---
+
+## **11.3. Clasificación de Vulnerabilidades**
+
+### 1. Evaluación de Riesgo
+
+Clasificar las vulnerabilidades según su severidad y el riesgo asociado.
+
+#### Ejemplo Práctico: Uso del Sistema CVSS
+
+- **Evaluar una vulnerabilidad usando CVSS:**
+  - Calcular la puntuación CVSS para determinar la severidad (baja, media, alta).
+  
+  ```plaintext
+  Base Score: 7.5 (Alto)
+  Access Vector: Red
+  Access Complexity: Bajo
+  Authentication: Ninguna
+  ```
+  
+### 2. Priorización de Vulnerabilidades
+
+Priorizar las vulnerabilidades basándose en su impacto potencial y la criticidad del sistema afectado.
+
+#### Ejemplo Práctico: Matriz de Priorización
+
+- **Crear una matriz de priorización:**
+  
+| Vulnerabilidad       | Severidad | Sistema Afectado | Prioridad |
+|---------------------|-----------|------------------|-----------|
+| Vulnerabilidad 1    | Alta      | Servidor Web     | Alta      |
+| Vulnerabilidad 2    | Media     | Estación de Trabajo| Media    |
+| Vulnerabilidad 3    | Baja      | Aplicación Interna | Baja     |
+
+---
+
+## **11.4. Remediación de Vulnerabilidades**
+
+### 1. Aplicación de Parches
+
+Instalar parches y actualizaciones para corregir vulnerabilidades conocidas.
+
+#### Ejemplo Práctico: Aplicación de Parches en Windows
+
+- **Usar Windows Update:**
+  1. Ir a `Configuración` > `Actualización y seguridad` > `Windows Update`.
+  2. Hacer clic en `Buscar actualizaciones` y seguir las instrucciones.
+
+#### Ejemplo Práctico: Aplicación de Parches en Linux
+
+- **Usar apt-get en Debian/Ubuntu:**
+  ```bash
+  sudo apt-get update
+  sudo apt-get upgrade
+  ```
+
+### 2. Mitigación
+
+Implementar medidas de mitigación si no es posible aplicar un parche de inmediato.
+
+#### Ejemplo Práctico: Uso de Reglas de Firewall
+
+- **Configurar reglas en iptables para bloquear un puerto vulnerable:**
+  ```bash
+  sudo iptables -A INPUT -p tcp --dport 80 -j DROP
+  ```
+
+---
+
+## **11.5. Monitoreo y Revisión Continua**
+
+### 1. Monitoreo de Vulnerabilidades
+
+Implementar un programa continuo de monitoreo para detectar nuevas vulnerabilidades.
+
+#### Ejemplo Práctico: Configuración de Escaneos Programados
+
+- **Configurar escaneos semanales con Nessus:**
+  1. Crear un escaneo en Nessus.
+  2. Programar el escaneo para que se ejecute automáticamente cada semana.
+
+### 2. Revisión de Políticas de Seguridad
+
+Revisar y actualizar las políticas de seguridad de forma regular.
+
+#### Ejemplo Práctico: Revisión Trimestral
+
+- **Realizar revisiones trimestrales:**
+  - Evaluar políticas existentes y realizar modificaciones según sea necesario.
+
+---
+
+## **11.6. Herramientas de Gestión de Vulnerabilidades**
+
+### 1. Herramientas Comerciales
+
+Investigar y seleccionar herramientas comerciales de gestión de vulnerabilidades.
+
+#### Ejemplo Práctico: Comparación de Herramientas
+
+- **Evaluar herramientas como:**
+  - **Nessus:** Famoso por su amplia base de datos de vulnerabilidades.
+  - **Qualys:** Ofrece una solución integral en la nube.
+
+### 2. Herramientas de Código Abierto
+
+Explorar soluciones de código abierto para la gestión de vulnerabilidades.
+
+#### Ejemplo Práctico: Uso de OpenVAS
+
+- **Instalación y configuración de OpenVAS:**
+  1. Instalar OpenVAS en un servidor Linux.
+  2. Ejecutar el escaneo para detectar vulnerabilidades.
+
+```bash
+sudo apt-get install openvas
+sudo openvas-setup
+```
+
+---
+
+## **11.7. Educación y Concienciación**
+
+### 1. Capacitación Continua
+
+Proporcionar capacitación continua a los empleados sobre la gestión de vulnerabilidades.
+
+#### Ejemplo Práctico: Programar Sesiones de Capacitación
+
+- **Realizar capacitaciones mensuales:**
+  - Temas sobre mejores prácticas en seguridad y gestión de vulnerabilidades.
+
+### 2. Promover una Cultura de Seguridad
+
+Fomentar una cultura de seguridad dentro de la organización.
+
+#### Ejemplo Práctico: Implementar Campañas de Concienciación
+
+- **Crear campañas de concienciación:**
+  - Carteles, correos electrónicos y talleres sobre la importancia de la seguridad.
+
+---
+
+## **11.8. Conclusiones**
+
+La gestión de vulnerabilidades es un proceso continuo y crítico en la ciberseguridad. Identificar, clasificar, remediar y monitorear vulnerabilidades son pasos esenciales para proteger los activos de la organización. Al adoptar un enfoque sistemático y utilizando herramientas adecuadas, las organizaciones pueden reducir significativamente su riesgo y mejorar su postura de seguridad.
+
+---
+
+Este capítulo proporciona una guía práctica para la gestión de vulnerabilidades, con ejemplos específicos que los equipos de Blue Team pueden utilizar para identificar y remediar vulnerabilidades de manera efectiva.
