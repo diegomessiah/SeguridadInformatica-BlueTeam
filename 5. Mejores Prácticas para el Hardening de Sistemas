@@ -1,0 +1,190 @@
+# **5. Mejores Prácticas para el Hardening de Sistemas**
+
+## **5.1. Definición de Hardening**
+
+### ¿Qué es el Hardening?
+
+El hardening, o endurecimiento de sistemas, se refiere al proceso de asegurar un sistema informático mediante la reducción de su superficie de ataque. Esto se logra deshabilitando servicios innecesarios, aplicando configuraciones de seguridad y actualizando el software.
+
+### Importancia del Hardening
+
+- **Reducción de Vulnerabilidades:** Minimiza los puntos de entrada que los atacantes pueden explotar.
+- **Aumento de la Seguridad General:** Mejora la defensa general de la infraestructura de TI.
+- **Cumplimiento Normativo:** Ayuda a cumplir con regulaciones y estándares de seguridad.
+
+---
+
+## **5.2. Principios del Hardening**
+
+### 1. Minimizar la Superficie de Ataque
+
+Reducir el número de servicios, aplicaciones y usuarios en un sistema.
+
+#### Ejemplo Práctico: Deshabilitar Servicios Innecesarios en Linux
+
+- **Listar servicios activos:**
+   ```bash
+   systemctl list-units --type=service
+   ```
+
+- **Deshabilitar un servicio (por ejemplo, FTP):**
+   ```bash
+   sudo systemctl stop vsftpd
+   sudo systemctl disable vsftpd
+   ```
+
+---
+
+### 2. Aplicar Actualizaciones y Parches
+
+Mantener todos los sistemas actualizados es esencial para la seguridad.
+
+#### Ejemplo Práctico: Actualizar el Sistema en Ubuntu
+
+- **Actualizar los paquetes del sistema:**
+   ```bash
+   sudo apt update && sudo apt upgrade -y
+   ```
+
+- **Instalar actualizaciones de seguridad específicas:**
+   ```bash
+   sudo apt install unattended-upgrades
+   ```
+
+---
+
+### 3. Configuración Segura
+
+Configurar los sistemas y aplicaciones de acuerdo con las mejores prácticas de seguridad.
+
+#### Ejemplo Práctico: Configuración Segura de SSH
+
+- **Modificar la configuración de SSH para deshabilitar el acceso root:**
+   ```bash
+   sudo nano /etc/ssh/sshd_config
+   # Cambiar PermitRootLogin a no
+   PermitRootLogin no
+   ```
+
+- **Cambiar el puerto por defecto de SSH:**
+   ```plaintext
+   Port 2222
+   ```
+
+- **Reiniciar el servicio SSH:**
+   ```bash
+   sudo systemctl restart ssh
+   ```
+
+---
+
+## **5.3. Implementación de Herramientas de Hardening**
+
+### 1. Scripts de Hardening
+
+Utilizar scripts y herramientas automatizadas para aplicar configuraciones de seguridad.
+
+#### Ejemplo Práctico: Uso de Lynis para Hardening de Linux
+
+- **Instalar Lynis:**
+   ```bash
+   sudo apt install lynis
+   ```
+
+- **Ejecutar un escaneo de seguridad:**
+   ```bash
+   sudo lynis audit system
+   ```
+
+- **Revisar el informe y aplicar las recomendaciones.**
+
+---
+
+### 2. Análisis de Seguridad
+
+Realizar auditorías y análisis regulares para identificar vulnerabilidades.
+
+#### Ejemplo Práctico: Uso de OpenVAS para Escaneo de Vulnerabilidades
+
+- **Instalar OpenVAS:**
+   ```bash
+   sudo apt install openvas
+   ```
+
+- **Configurar OpenVAS:**
+   ```bash
+   sudo gvm-setup
+   sudo gvm-start
+   ```
+
+- **Ejecutar un escaneo de vulnerabilidades.**
+
+---
+
+## **5.4. Servicios Open Source para Hardening**
+
+### 1. Fail2ban
+
+Una herramienta que permite proteger servicios de red contra ataques de fuerza bruta.
+
+#### Ejemplo Práctico: Configuración de Fail2ban
+
+- **Instalar Fail2ban:**
+   ```bash
+   sudo apt install fail2ban
+   ```
+
+- **Configurar Fail2ban:**
+   ```bash
+   sudo nano /etc/fail2ban/jail.local
+   ```
+
+   - Agregar configuraciones para proteger SSH:
+   ```plaintext
+   [sshd]
+   enabled = true
+   port = 2222
+   filter = sshd
+   logpath = /var/log/auth.log
+   maxretry = 5
+   bantime = 3600
+   ```
+
+- **Reiniciar Fail2ban:**
+   ```bash
+   sudo systemctl restart fail2ban
+   ```
+
+---
+
+### 2. AppArmor
+
+Un sistema de control de acceso que proporciona un marco de seguridad para proteger las aplicaciones.
+
+#### Ejemplo Práctico: Configuración de AppArmor
+
+- **Instalar AppArmor:**
+   ```bash
+   sudo apt install apparmor
+   ```
+
+- **Activar AppArmor:**
+   ```bash
+   sudo systemctl enable apparmor
+   sudo systemctl start apparmor
+   ```
+
+- **Crear un perfil para una aplicación específica:**
+   ```bash
+   sudo aa-genprof /path/to/application
+   ```
+
+---
+
+## **5.5. Conclusiones**
+
+El hardening de sistemas es un proceso esencial para proteger la infraestructura de TI. Implementar las mejores prácticas y utilizar herramientas open source puede mejorar significativamente la postura de seguridad de una organización. Un enfoque metódico y proactivo en el hardening permitirá mitigar riesgos y proteger los activos críticos de la organización.
+
+---
+
+Este capítulo proporciona una guía práctica para la implementación de mejores prácticas en el hardening de sistemas, junto con ejemplos específicos que los equipos de Blue Team pueden utilizar en sus operaciones diarias.
