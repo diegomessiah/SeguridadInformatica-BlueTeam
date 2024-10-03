@@ -1,0 +1,201 @@
+# **8. Implementación de Medidas de Seguridad**
+
+## **8.1. Introducción a las Medidas de Seguridad**
+
+La implementación de medidas de seguridad efectivas es crucial para proteger los activos de información de una organización. Esto implica establecer controles técnicos y administrativos que ayuden a prevenir, detectar y responder a amenazas y vulnerabilidades.
+
+---
+
+## **8.2. Medidas de Seguridad Preventivas**
+
+### 1. Control de Acceso
+
+Establecer mecanismos de control de acceso para garantizar que solo los usuarios autorizados puedan acceder a sistemas y datos sensibles.
+
+#### Ejemplo Práctico: Configuración de Control de Acceso en Linux
+
+- **Crear usuarios con permisos específicos:**
+   ```bash
+   sudo adduser newuser
+   ```
+
+- **Modificar permisos de archivo:**
+   ```bash
+   sudo chown newuser:group /path/to/file
+   sudo chmod 640 /path/to/file
+   ```
+
+#### Ejemplo Práctico: Configuración de Control de Acceso en Windows
+
+- **Crear usuarios y grupos:**
+  1. Abrir `Administración de equipos`.
+  2. Ir a `Usuarios y grupos locales`.
+  3. Crear un nuevo usuario y asignarlo a un grupo.
+
+- **Modificar permisos de archivos:**
+  1. Hacer clic derecho en la carpeta o archivo.
+  2. Ir a `Propiedades` > `Seguridad`.
+  3. Modificar los permisos para los usuarios.
+
+---
+
+### 2. Encriptación de Datos
+
+Proteger la confidencialidad de los datos a través de la encriptación.
+
+#### Ejemplo Práctico: Uso de OpenSSL para Encriptar Archivos en Linux
+
+- **Encriptar un archivo:**
+   ```bash
+   openssl aes-256-cbc -salt -in file.txt -out file.enc
+   ```
+
+- **Desencriptar un archivo:**
+   ```bash
+   openssl aes-256-cbc -d -in file.enc -out file.txt
+   ```
+
+#### Ejemplo Práctico: Uso de BitLocker para Encriptar Discos en Windows
+
+- **Activar BitLocker:**
+  1. Hacer clic derecho en la unidad a encriptar y seleccionar `Activar BitLocker`.
+  2. Seguir el asistente para configurar la encriptación.
+
+- **Desencriptar un disco:**
+  1. Ir a `Panel de control` > `Sistema y seguridad` > `Cifrado de unidad BitLocker`.
+  2. Seleccionar la unidad y optar por `Desactivar BitLocker`.
+
+---
+
+## **8.3. Medidas de Seguridad Detectivas**
+
+### 1. Monitoreo de Seguridad
+
+Implementar sistemas de monitoreo para detectar actividades sospechosas en tiempo real.
+
+#### Ejemplo Práctico: Uso de Splunk para Monitoreo en Linux
+
+- **Configurar Splunk para recoger logs:**
+   - Instalar el agente de Splunk en los servidores.
+   ```bash
+   wget -O splunk-install.sh 'https://www.splunk.com/page/download_track?file=7.3.3/linux/splunk/linux/splunk-7.3.3-3f02c7aab8f0-linux-2.6-amd64.deb&ac=default&wt_mc=downloads_default'
+   ```
+
+- **Ejecutar Splunk:**
+   ```bash
+   sudo dpkg -i splunk-*.deb
+   sudo /opt/splunk/bin/splunk start --accept-license
+   ```
+
+#### Ejemplo Práctico: Uso de Monitor de Eventos en Windows
+
+- **Acceder al Monitor de Eventos:**
+  1. Abrir `Ejecutar` (Win + R) y escribir `eventvwr`.
+  2. Navegar a `Registros de Windows` para revisar eventos de seguridad.
+
+---
+
+### 2. Auditoría de Seguridad
+
+Realizar auditorías regulares para evaluar el cumplimiento de las políticas de seguridad.
+
+#### Ejemplo Práctico: Uso de Lynis para Auditoría en Linux
+
+- **Ejecutar Lynis para auditoría del sistema:**
+   ```bash
+   sudo lynis audit system
+   ```
+
+- **Revisar el informe y aplicar recomendaciones.**
+
+#### Ejemplo Práctico: Uso de la Herramienta de Auditoría de Seguridad en Windows
+
+- **Acceder a la Herramienta de Auditoría:**
+  1. Abrir `Panel de control` > `Herramientas administrativas` > `Directiva de seguridad local`.
+  2. Configurar las políticas de auditoría en `Políticas locales` > `Política de auditoría`.
+
+---
+
+## **8.4. Medidas de Seguridad Correctivas**
+
+### 1. Respuesta a Incidentes
+
+Establecer procedimientos para responder a incidentes de seguridad de manera efectiva.
+
+#### Ejemplo Práctico: Desarrollo de un Protocolo de Respuesta
+
+1. **Notificación de incidentes:**
+   - Crear un canal de comunicación para reportar incidentes.
+   - Proporcionar un formulario para el reporte de incidentes.
+
+2. **Escalación:**
+   - Definir criterios para escalar incidentes a niveles superiores de gestión.
+
+---
+
+### 2. Parcheo y Actualización
+
+Aplicar actualizaciones y parches de seguridad de manera oportuna.
+
+#### Ejemplo Práctico: Automatización de Actualizaciones en Ubuntu
+
+- **Habilitar actualizaciones automáticas:**
+   ```bash
+   sudo dpkg-reconfigure --priority=low unattended-upgrades
+   ```
+
+- **Configurar actualizaciones de seguridad:**
+   ```bash
+   sudo nano /etc/apt/apt.conf.d/50unattended-upgrades
+   ```
+
+#### Ejemplo Práctico: Actualización de Windows
+
+- **Configurar Windows Update:**
+  1. Abrir `Configuración` > `Actualización y seguridad`.
+  2. Hacer clic en `Buscar actualizaciones` y asegurarse de que las actualizaciones automáticas estén habilitadas.
+
+---
+
+## **8.5. Medidas de Seguridad Administrativas**
+
+### 1. Políticas de Seguridad
+
+Desarrollar y documentar políticas de seguridad claras que guíen el comportamiento de los empleados.
+
+#### Ejemplo Práctico: Creación de una Política de Contraseñas
+
+- **Contenido de la política:**
+  - Requisitos de longitud y complejidad de contraseñas.
+  - Frecuencia de cambio de contraseñas.
+  - Prohibición de compartir contraseñas.
+
+- **Distribución de la política:**
+  - Enviar la política a todos los empleados y proporcionar capacitación.
+
+---
+
+### 2. Capacitación de Seguridad
+
+Realizar capacitación regular para concienciar a los empleados sobre prácticas de seguridad.
+
+#### Ejemplo Práctico: Taller de Concienciación sobre Seguridad
+
+1. **Planificación del taller:**
+   - Definir los temas a cubrir (phishing, uso seguro de contraseñas, etc.).
+
+2. **Realización del taller:**
+   - Organizar sesiones en línea o presenciales.
+
+3. **Evaluación:**
+   - Realizar una evaluación posterior al taller para medir la efectividad.
+
+---
+
+## **8.6. Conclusiones**
+
+La implementación de medidas de seguridad efectivas es esencial para proteger los activos de información de una organización. Las medidas preventivas, detectivas y correctivas deben ser combinadas con políticas administrativas y capacitación continua para crear un entorno seguro. Siguiendo un enfoque metódico y utilizando las herramientas adecuadas, los equipos de Blue Team pueden mitigar riesgos y mejorar la postura de seguridad de la organización.
+
+---
+
+Este capítulo proporciona una guía práctica para implementar medidas de seguridad efectivas en sistemas tanto Linux como Windows, junto con ejemplos específicos que los equipos de Blue Team pueden utilizar en sus operaciones diarias.
