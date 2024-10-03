@@ -1,0 +1,170 @@
+# **12. Forense Digital**
+
+## **12.1. Introducción a la Forense Digital**
+
+La forense digital es el proceso de identificar, preservar, analizar y presentar datos de manera legalmente aceptable para investigar incidentes de seguridad y delitos cibernéticos. Esta disciplina es esencial para entender cómo ocurrió un ataque y qué se puede hacer para prevenir futuros incidentes.
+
+---
+
+## **12.2. Preparación para la Investigación Forense**
+
+### 1. Establecimiento de un Equipo Forense
+
+Crear un equipo forense compuesto por profesionales capacitados en técnicas de investigación digital.
+
+#### Ejemplo Práctico: Roles en el Equipo
+
+- **Líder Forense:** Responsable de coordinar la investigación.
+- **Analista Forense:** Encargado de realizar el análisis de los datos.
+- **Documentador:** Registra todas las acciones realizadas durante la investigación.
+
+### 2. Desarrollo de un Plan de Respuesta
+
+Establecer un plan de respuesta a incidentes que incluya procedimientos forenses.
+
+#### Ejemplo Práctico: Protocolo de Respuesta
+
+- **Documentar pasos claros:**
+  1. **Identificación** del incidente.
+  2. **Contención** del incidente.
+  3. **Recopilación** de evidencia.
+  4. **Análisis** de la evidencia.
+  5. **Informe** de hallazgos.
+
+---
+
+## **12.3. Recopilación de Evidencias**
+
+### 1. Identificación de Fuentes de Evidencia
+
+Identificar las fuentes de evidencia relevantes, como discos duros, dispositivos móviles, y registros de red.
+
+#### Ejemplo Práctico: Fuentes Comunes de Evidencia
+
+- **Dispositivos de almacenamiento:** Discos duros internos y externos.
+- **Registros de red:** Logs de firewall, routers y servidores.
+
+### 2. Técnicas de Recopilación
+
+Utilizar técnicas adecuadas para la recopilación de evidencia, asegurando su integridad.
+
+#### Ejemplo Práctico: Uso de Imágenes Forenses
+
+- **Crear una imagen forense de un disco duro:**
+  - Utilizar herramientas como `FTK Imager` o `dd` en Linux.
+
+```bash
+dd if=/dev/sdX of=/ruta/a/imagen.dd bs=4M status=progress
+```
+
+---
+
+## **12.4. Análisis de la Evidencia**
+
+### 1. Análisis de Datos
+
+Realizar un análisis detallado de los datos recopilados para identificar actividades maliciosas.
+
+#### Ejemplo Práctico: Análisis de Archivos de Registro
+
+- **Uso de herramientas como `LogParser`:**
+  - Analizar logs para identificar patrones de comportamiento sospechosos.
+
+```bash
+LogParser "SELECT * FROM logs WHERE EventType='LoginFailed'" -o:CSV > failed_logins.csv
+```
+
+### 2. Análisis de Malware
+
+Identificar y analizar malware encontrado en el sistema.
+
+#### Ejemplo Práctico: Uso de `VirusTotal`
+
+- **Subir archivos sospechosos a VirusTotal para su análisis:**
+  - Revisar los resultados para identificar comportamientos maliciosos.
+
+---
+
+## **12.5. Documentación y Presentación de Resultados**
+
+### 1. Documentación del Proceso
+
+Registrar todas las acciones realizadas durante la investigación de manera detallada.
+
+#### Ejemplo Práctico: Plantilla de Documentación
+
+- **Crear una plantilla para la documentación:**
+  - **Fecha y hora de la recopilación.**
+  - **Métodos utilizados.**
+  - **Resultados obtenidos.**
+
+### 2. Presentación de Resultados
+
+Preparar un informe final que resuma los hallazgos y conclusiones de la investigación.
+
+#### Ejemplo Práctico: Formato de Informe
+
+- **Secciones del informe:**
+  - Resumen ejecutivo.
+  - Metodología utilizada.
+  - Hallazgos.
+  - Recomendaciones.
+
+---
+
+## **12.6. Herramientas Forenses Comunes**
+
+### 1. Herramientas Comerciales
+
+Investigar y seleccionar herramientas comerciales para la forense digital.
+
+#### Ejemplo Práctico: Comparación de Herramientas
+
+- **Evaluar herramientas como:**
+  - **EnCase:** Amplia gama de capacidades de análisis forense.
+  - **FTK (Forensic Toolkit):** Ideal para el análisis de discos y datos.
+
+### 2. Herramientas de Código Abierto
+
+Explorar soluciones de código abierto para la forense digital.
+
+#### Ejemplo Práctico: Uso de Autopsy
+
+- **Instalación y uso de Autopsy:**
+  1. Instalar Autopsy siguiendo las instrucciones en su [sitio oficial](https://www.sleuthkit.org/autopsy/).
+  2. Crear un nuevo caso y cargar la imagen forense para análisis.
+
+---
+
+## **12.7. Mejores Prácticas en Forense Digital**
+
+### 1. Mantener la Integridad de la Evidencia
+
+Asegurarse de que la evidencia no se modifique durante el proceso de recopilación y análisis.
+
+#### Ejemplo Práctico: Uso de Hashing
+
+- **Calcular el hash SHA256 de la imagen forense:**
+
+```bash
+sha256sum /ruta/a/imagen.dd
+```
+
+### 2. Capacitación Continua
+
+Proporcionar capacitación continua al equipo forense sobre nuevas técnicas y herramientas.
+
+#### Ejemplo Práctico: Realizar Talleres
+
+- **Organizar talleres de forense digital:**
+  - Temas sobre nuevas herramientas y tendencias en ciberseguridad.
+
+---
+
+## **12.8. Conclusiones**
+
+La forense digital es un componente crítico en la respuesta a incidentes y la investigación de delitos cibernéticos. La preparación adecuada, la recopilación y análisis de evidencia, y la presentación de resultados son pasos esenciales para llevar a cabo investigaciones forenses efectivas. Al adoptar un enfoque sistemático y utilizando herramientas adecuadas, las organizaciones pueden mejorar significativamente su capacidad para responder a incidentes de seguridad y proteger sus activos digitales.
+
+---
+
+Este capítulo proporciona una guía práctica para la forense digital, con ejemplos específicos que los equipos de Blue Team pueden utilizar para investigar y analizar incidentes de seguridad de manera efectiva.
